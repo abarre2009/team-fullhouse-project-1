@@ -1,0 +1,45 @@
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .hero-bkg-animated {
+        background: gray url(usa-waving-flag-background-loop_szzghy9n__F0000.png) repeat 0 0;
+        color: aliceblue;
+        width: 100%;
+        margin: 0;
+        text-align: center;
+        height: 200px;
+        padding-top: 120px;
+        background-size: cover;
+        /* position: absolute; */
+        /* box-sizing: border-box; */
+        -webkit-animation: slide 20s linear infinite;
+    }
+
+    .hero-bkg-animated h1 {
+        font-family: sans-serif;
+    }
+
+    @-webkit-keyframes slide {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: -400px 0;
+        }
+    }
+
+    #foot2 {
+        width: 100%;
+        height: 50px;
+        border-style: inset;
+        border-color: aqua;
+        border-width: 8px 0px 0px 0px;
+        margin-top: 320px;
+        color: #ffffff;
+        background: #777777;
+        text-align: center;
+        position: absolute;
+        bottom: 0%;
+    }

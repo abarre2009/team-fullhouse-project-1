@@ -7,21 +7,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
 </head>
 
 <body>
-    <div>
-        <form>
-            <input id="houseNo" type="text">House No</input><br>
-            <input id="StreetName" type="text">Street Name</input><br>
-            <input id="city" type="text">City</input><br>
-            <input id="state" type="text">State</input><br>
-            <input id="zipcode" type="text">Zipcode</input><br>
-            <button id="searchbutton">Search</button>
-        </form>
-    </div>
+    <div class="jumbotron hero-bkg-animated">Welcome</div>
+    <button id = "getInfo">Get info</button>
+    <form id = "addressDetail" style = "display:none">
+        <input id="houseNo" type="text">House No</input><br>
+        <input id="StreetName" type="text">Street Name</input><br>
+        <input id="city" type="text">City</input><br>
+        <input id="state" type="text">State</input><br>
+        <input id="zipcode" type="text">Zipcode</input><br>
+        <button id="searchbutton">Search</button>
+    </form>
+    <form id = "pollingLocation">
+        <div id = "polCity"></div>
+        <div id = "polline1"></div>
+        <div id = "polLocationName"></div>
+        <div id = "polState"></div>
+        <div id = "polZip"></div>
+        
+    </form>
+    <footer id="foot2">Copyright</footer>
     <div id="searchresults"> </div>
-    <div> </div>
+    <audio src="attention.mp3" id="my_audio" loop="loop"></audio>
+    <script type="text/javascript">
+
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
