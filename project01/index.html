@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body id="backgroundPol">
     <div class="jumbotron hero-bkg-animated">Welcome</div>
     <!-- <button id="getInfo">Get info</button> -->
     <form id="addressDetail">
@@ -22,17 +22,20 @@
         <input id="zipcode" type="text">Zipcode</input><br>
         <button id="searchbutton">Search</button>
     </form>
-    <div class="jumbotron1">
-    <form id="pollingLocation">
-        <h2 id = "polAddress" style="display:none">Polling Address</h2>
-        <div id="polline1"></div>
+    <form id="pollingLocation" style="display:none">
+        <h2 id="polAddress" style="display:none">Polling Address</h2>
         <div id="polLocationName"></div>
+        <div id="polline1"></div>
         <div id="polCity"></div>
         <div id="polState"></div>
         <div id="polZip"></div>
-        <img id= "image_element"></img>
+        <img id="image_element"></img>
     </form>
-    </div>
+    <div id="candList" style="display: none">Candidates List</div>
+    <div class="tile" style="display:none"><div id = "candName"></div><div id = "party"></div><div id = "candEmail"></div><div id = "candPhone"></div></div>
+    <div class="tile" style="display:none"><div id = "candName1"></div><div id = "party1"></div><div id = "candEmail1"></div><div id = "candPhone1"></div></div>
+    <div class="tile" style="display:none"><div id = "candName2"></div><div id = "party2"></div><div id = "candEmail2"></div><div id = "candPhone2"></div></div>
+    <div class="tile" style="display:none"><div id = "candName3"></div><div id = "party3"></div><div id = "candEmail3"></div><div id = "candPhone3"></div></div>
     <footer id="foot2">Copyright</footer>
     <div id="searchresults"> </div>
     <audio src="attention.mp3" id="my_audio" loop="loop"></audio>

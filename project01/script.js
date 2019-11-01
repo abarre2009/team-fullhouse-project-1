@@ -9,6 +9,11 @@ var proxy = "https://chriscastle.com/proxy/index.php?:proxy:";
 //     $("#getInfo").hide();
 // })
 
+function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+}
+
 https://www.googleapis.com/civicinfo/v2/elections
 function electionInfo(searchValue, searchValue1) {
     console.log(searchValue)
@@ -28,14 +33,56 @@ function electionInfo(searchValue, searchValue1) {
         var state = response.pollingLocations[0].address.state;
         var zip = response.pollingLocations[0].address.zip;
 
-        console.log(city);
+        var candName = response.contests[0].candidates[0].name;
+        var party = response.contests[0].candidates[0].party;
+        var candEmail = response.contests[0].candidates[0].email;
+        var candPhone = response.contests[0].candidates[0].phone;
+
+        var candName1 = response.contests[0].candidates[1].name;
+        var party1 = response.contests[0].candidates[1].party;
+        var candEmail1 = response.contests[0].candidates[1].email;
+        var candPhone1 = response.contests[0].candidates[1].phone;
+
+        var candName2 = response.contests[0].candidates[2].name;
+        var party2 = response.contests[0].candidates[2].party;
+        var candEmail2 = response.contests[0].candidates[2].email;
+        var candPhone2 = response.contests[0].candidates[2].phone;
+
+        var candName3 = response.contests[0].candidates[3].name;
+        var party3 = response.contests[0].candidates[3].party;
+        var candEmail3 = response.contests[0].candidates[3].email;
+        var candPhone3 = response.contests[0].candidates[3].phone;
+
+        $("#pollingLocation").show();
         $("#polAddress").show();
-        $("#polCity").append(city);
-        $("#polline1").append(line1);
-        $("#polLocationName").append(locationName);
-        $("#polState").append(state);
-        $("#polZip").append(zip);
-        $('#pollingLocation').css('background-image', 'url(state.jpg)');
+        $("#polCity").append("City:" + " " + city);
+        $("#polline1").append("Address Line:" + " " + line1);
+        $("#polLocationName").append("Location Name:" + " " + locationName);
+        $("#polState").append("State:" + " " + state);
+        $("#polZip").append("Zip" + " " + zip);
+        $('body').css('background-image', 'url(state.jpg)');
+
+        $("#candList").show();
+        $(".tile").show();
+        $("#candName").append("Candidate Name:" + " " + candName);
+        $("#party").append("Party:" + " " + party);
+        $("#candEmail").append("Email:" + " " + candEmail);
+        $("#candPhone").append("PhNo:" + " " + candPhone);
+
+        $("#candName1").append("Candidate Name:" + " " + candName1);
+        $("#party1").append("Party:" + " " + party1);
+        $("#candEmail1").append("Email:" + " " + candEmail1);
+        $("#candPhone1").append("PhNo:" + " " + candPhone1);
+
+        $("#candName2").append("Candidate Name:" + " " + candName2);
+        $("#party2").append("Party:" + " " + party2);
+        $("#candEmail2").append("Email:" + " " + candEmail2);
+        $("#candPhone2").append("PhNo:" + " " + candPhone2);
+
+        $("#candName3").append("Candidate Name:" + " " + candName3);
+        $("#party3").append("Party:" + " " + party3);
+        $("#candEmail3").append("Email:" + " " + candEmail3);
+        $("#candPhone3").append("PhNo:" + " " + candPhone3);
     })
 
     $.ajax({
