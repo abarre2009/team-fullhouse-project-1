@@ -13,8 +13,8 @@
 
 <body>
     <div class="jumbotron hero-bkg-animated">Welcome</div>
-    <button id = "getInfo">Get info</button>
-    <form id = "addressDetail" style = "display:none">
+    <!-- <button id="getInfo">Get info</button> -->
+    <form id="addressDetail">
         <input id="houseNo" type="text">House No</input><br>
         <input id="StreetName" type="text">Street Name</input><br>
         <input id="city" type="text">City</input><br>
@@ -22,14 +22,17 @@
         <input id="zipcode" type="text">Zipcode</input><br>
         <button id="searchbutton">Search</button>
     </form>
-    <form id = "pollingLocation">
-        <div id = "polCity"></div>
-        <div id = "polline1"></div>
-        <div id = "polLocationName"></div>
-        <div id = "polState"></div>
-        <div id = "polZip"></div>
-        
+    <div class="jumbotron1">
+    <form id="pollingLocation">
+        <h2 id = "polAddress" style="display:none">Polling Address</h2>
+        <div id="polline1"></div>
+        <div id="polLocationName"></div>
+        <div id="polCity"></div>
+        <div id="polState"></div>
+        <div id="polZip"></div>
+        <img id= "image_element"></img>
     </form>
+    </div>
     <footer id="foot2">Copyright</footer>
     <div id="searchresults"> </div>
     <audio src="attention.mp3" id="my_audio" loop="loop"></audio>

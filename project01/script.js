@@ -2,12 +2,12 @@
 var key = "bf3bbf0ea22e7e35ceaa37777ebf0b82"
 var proxy = "https://chriscastle.com/proxy/index.php?:proxy:";
 
-$("#getInfo").on("click", function (event) {
-    event.preventDefault()
-    $("#addressDetail").show();
-    $(".jumbotron").hide();
-    $("#getInfo").hide();
-})
+// $("#getInfo").on("click", function (event) {
+//     event.preventDefault()
+//     $("#addressDetail").show();
+//     $(".jumbotron").hide();
+//     $("#getInfo").hide();
+// })
 
 https://www.googleapis.com/civicinfo/v2/elections
 function electionInfo(searchValue, searchValue1) {
@@ -29,11 +29,13 @@ function electionInfo(searchValue, searchValue1) {
         var zip = response.pollingLocations[0].address.zip;
 
         console.log(city);
+        $("#polAddress").show();
         $("#polCity").append(city);
         $("#polline1").append(line1);
         $("#polLocationName").append(locationName);
         $("#polState").append(state);
         $("#polZip").append(zip);
+        $('#pollingLocation').css('background-image', 'url(state.jpg)');
     })
 
     $.ajax({
@@ -56,4 +58,5 @@ $("#searchbutton").on("click", function (event) {
     var allValues = (value + "%20" + value1 + "%20" + value2 + "%20" + value3 + "%20" + value4);
     electionInfo(allValues, value3);
     $("#addressDetail").hide();
+    $(".jumbotron").hide();
 })
