@@ -1,3 +1,4 @@
+console.log("jsfile")
 // var searchbutton = $("#searchbar").val().trim()
 var key = "bf3bbf0ea22e7e35ceaa37777ebf0b82"
 var proxy = "https://chriscastle.com/proxy/index.php?:proxy:";
@@ -42,17 +43,17 @@ function electionInfo(searchValue, searchValue1) {
         var party1 = response.contests[0].candidates[1].party;
         var candEmail1 = response.contests[0].candidates[1].email;
         var candPhone1 = response.contests[0].candidates[1].phone;
-
-        var candName2 = response.contests[0].candidates[2].name;
-        var party2 = response.contests[0].candidates[2].party;
-        var candEmail2 = response.contests[0].candidates[2].email;
-        var candPhone2 = response.contests[0].candidates[2].phone;
+console.log(response.contests[0].candidates[2])
+       // var candName2 = response.contests[0].candidates[2].name;
+       // var party2 = response.contests[0].candidates[2].party;
+        //var candEmail2 = response.contests[0].candidates[2].email;
+       // var candPhone2 = response.contests[0].candidates[2].phone;
 
         var candName3 = response.contests[0].candidates[3].name;
         var party3 = response.contests[0].candidates[3].party;
         var candEmail3 = response.contests[0].candidates[3].email;
         var candPhone3 = response.contests[0].candidates[3].phone;
-
+            console.log("name", locationName)
         $("#pollingLocation").show();
         $("#polAddress").show();
         $("#polCity").append("City:" + " " + city);
@@ -83,6 +84,7 @@ function electionInfo(searchValue, searchValue1) {
         $("#party3").append("Party:" + " " + party3);
         $("#candEmail3").append("Email:" + " " + candEmail3);
         $("#candPhone3").append("PhNo:" + " " + candPhone3);
+
     })
 
     $.ajax({

@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <title>fullhouse</title>
+    <link rel="stylesheet" href="./testcss" />
+
 </head>
-
-<body>
-
-    <div>
-
-        <form>
-
-            <input id="searchbar" type="text">
-            <button id="searchbutton">
-                      Search
-            </button>
-        </form>
-
-    </div>
-    <div id="searchresults"> </div>
-
-
-    <div> </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-
+<body >
     
+    <div id="main-container" class="container">
+        <a href="./index.html"> Home</a> 
+            <h1>contact us</h1>
+            <form>
+    
+                <ul>
+                    <li>
+                        <label for="name">Name</label>
+                        <input type="text" name="Name" id="name" placeholder="John Smith" required="required">
+                    </li>
+    
+                    <li>
+                        <label for="email">Email</label>
+                        <input type="text" name="Email" id="Email" placeholder="example@gmail.com" required="required">
+                    </li>
+    
+                    <li>
+                        <label for="message">Message</label>
+                        <textarea name="message" id="message" placeholder="message" required="required"></textarea>
+                    </li>
+    
+    
+                </ul>
+                <input type="submit" name="submit">
+    
+            </form>
+        </section>
+    </div>
 
-
-
-        <script src="./test.js">
-
-    </script>
 
    
 
 
 </body>
-
 </html>
