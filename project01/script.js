@@ -1,4 +1,5 @@
 // var searchbutton = $("#searchbar").val().trim()
+var value3 = $("#state").val().trim();
 var key = "bf3bbf0ea22e7e35ceaa37777ebf0b82"
 var proxy = "https://chriscastle.com/proxy/index.php?:proxy:";
 
@@ -61,6 +62,7 @@ function electionInfo(searchValue, searchValue1) {
         $("#polState").append("State:" + " " + state);
         $("#polZip").append("Zip" + " " + zip);
         $('body').css('background-image', 'url(state.jpg)');
+        $("#image_element").append('background-image', 'url("https://media.giphy.com/media/3oz8xveS8JKSkUJI52/giphy.gif")');
 
         $("#candList").show();
         $(".tile").show();
@@ -106,4 +108,95 @@ $("#searchbutton").on("click", function (event) {
     electionInfo(allValues, value3);
     $("#addressDetail").hide();
     $(".jumbotron").hide();
+    $("#infoBar").hide();
+    $("#VoteImage").show();
+    $("#stateCandList").show();
 })
+function getElection(state) {
+    $.ajax({
+        url: "http://api.votesmart.org/Election.getElectionByYearState?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&stateId=" + state + "&year=2019",
+        method: "GET",
+        dataType: "json",
+    }).then(function (response) {
+
+        if (response) {
+            var electionId = response.elections.election[0].electionId;
+            getCandidatesByElections(electionId)
+        }
+    });
+}
+function getCandidatesByElections(electionId) {
+    $.ajax({
+        url: "http://api.votesmart.org/Candidates.getByElection?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&electionId=" + electionId,
+        method: "GET",
+        dataType: "json",
+    }).then(function (response) {
+
+        if (response) {
+            var candidates = response.candidateList.candidate;
+            for (var i = 0; i < candidates.length; i++) {
+                getCandidateBio(candidates[i].candidateId);
+            }
+        }
+
+    });
+}
+
+function getCandidateBio(candidateId) {
+    $.ajax({
+        url: "http://api.votesmart.org/CandidateBio.getBio?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&candidateId=" + candidateId,
+        method: "GET",
+        dataType: "json",
+    }).then(function (response) {
+
+        console.log(response.bio.candidate);
+        var candidateDiv = $("<div style='display:inline-block; width:130px; border:1px solid black'>");
+        if (response.bio.candidate.photo) {
+
+
+            var photo = $("<img src='" + response.bio.candidate.photo + "'>");
+        }
+        else {
+            var photo = $("<img src='https://image.shutterstock.com/image-illustration/black-linear-photo-camera-logo-260nw-1412111903.jpg'>");
+        }
+        var name = $("<p>" + response.bio.candidate.firstName + " " + response.bio.candidate.lastName + "</p>");
+        var candidateId = $("<p>" + "Candidate ID:" + " " + response.bio.candidate.candidateId + "</p>");
+        var gender = $("<p>" + "Gender:" + " " + response.bio.candidate.gender + "</p>");
+        var birthDate = $("<p>" + "DOB:" + " " + response.bio.candidate.birthDate + "</p>");
+        var birthPlace = $("<p>" + "Birth Place:" + " " + response.bio.candidate.birthPlace + "</p>");
+        var homeCity = $("<p>" + "Home City:" + " " + response.bio.candidate.homeCity + "</p>");
+        var homeState = $("<p>" + "Home State:" + " " + response.bio.candidate.homeState + "</p>");
+        candidateDiv.append(photo);
+        candidateDiv.append(name);
+        candidateDiv.append(candidateId);
+        candidateDiv.append(gender);
+        candidateDiv.append(birthDate);
+        candidateDiv.append(birthPlace);
+        candidateDiv.append(homeCity);
+        candidateDiv.append(homeState);
+        $(".candidates").append(candidateDiv)
+    });
+}
+$("#getInfo").on("click", function (event) {
+    event.preventDefault()
+    var value3 = $("#state").val().trim();
+    getElection(value3);
+    $(".tile").hide();
+    $("#pollingLocation").hide();
+    $(".container").show();
+    $("#stateCandList").hide();
+    $("#candList").hide();
+    $('body').css('background-image', 'url(blues.png)');
+})
+$(".home").on("click", function (event) {
+    event.preventDefault()
+    $("#addressDetail").show();
+    $(".jumbotron").show();
+    $("#infoBar").show();
+    // $("#VoteImage").show();
+    $("#stateCandList").hide();
+    $(".container").hide();
+    $('body').css('background-image', '');
+})
+    //   getInfo
+    //   getElection("MN"); //from input $("button").val().trim()

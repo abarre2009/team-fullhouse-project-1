@@ -8,18 +8,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 </head>
 
 <body id="backgroundPol">
+    <div class="w3-bar w3-black">
+        <a href="#" class="w3-bar-item w3-button home">Home</a>
+        <a href="#" class="w3-bar-item w3-button">Contact</a>
+        <!-- <a href="#" class="w3-bar-item w3-button">Blog</a> -->
+    </div>
     <div class="jumbotron hero-bkg-animated">Welcome</div>
     <!-- <button id="getInfo">Get info</button> -->
+    <div id="infoBar">The Full house project is a nonpartisan initiative seeking to educate and increase political
+        participation amongst new and existing voters.
+        We believe, well-informed civilly engaged communities help create a democracy representative of the people.
+        It is our vision to help bring voters information through the digital channels and platforms they currently use
+        and ensure factual, non-bias, nonpartisan data is accessible to all.
+    </div>
+
     <form id="addressDetail">
-        <input id="houseNo" type="text">House No</input><br>
-        <input id="StreetName" type="text">Street Name</input><br>
-        <input id="city" type="text">City</input><br>
-        <input id="state" type="text">State</input><br>
-        <input id="zipcode" type="text">Zipcode</input><br>
+        <div id="addEnter">Please Enter you address</div>
+        <input id="houseNo" type="text" placeholder="House/Apt No"></input><br>
+        <input id="StreetName" type="text" placeholder="Street Name"></input><br>
+        <input id="city" type="text" placeholder="City"></input><br>
+        <input id="state" type="text" placeholder="State"></input><br>
+        <input id="zipcode" type="text" placeholder="Zipcode"></input><br>
         <button id="searchbutton">Search</button>
     </form>
     <form id="pollingLocation" style="display:none">
@@ -29,23 +42,54 @@
         <div id="polCity"></div>
         <div id="polState"></div>
         <div id="polZip"></div>
-        <img id="image_element"></img>
     </form>
+    <!-- <form id="VoteImage" style="display:none">
+            <img id="image_element"></img>
+    </form> -->
     <div id="candList" style="display: none">Candidates List</div>
-    <div class="tile" style="display:none"><div id = "candName"></div><div id = "party"></div><div id = "candEmail"></div><div id = "candPhone"></div></div>
-    <div class="tile" style="display:none"><div id = "candName1"></div><div id = "party1"></div><div id = "candEmail1"></div><div id = "candPhone1"></div></div>
-    <div class="tile" style="display:none"><div id = "candName2"></div><div id = "party2"></div><div id = "candEmail2"></div><div id = "candPhone2"></div></div>
-    <div class="tile" style="display:none"><div id = "candName3"></div><div id = "party3"></div><div id = "candEmail3"></div><div id = "candPhone3"></div></div>
-    <footer id="foot2">Copyright</footer>
-    <div id="searchresults"> </div>
-    <audio src="attention.mp3" id="my_audio" loop="loop"></audio>
-    <script type="text/javascript">
+    <div class="tile" style="display:none">
+        <div id="candName"></div><br>
+        <div id="party"></div><br>
+        <div id="candEmail"></div><br>
+        <div id="candPhone"></div>
+    </div>
+    <div class="tile" style="display:none">
+        <div id="candName1"></div><br>
+        <div id="party1"></div><br>
+        <div id="candEmail1"></div><br>
+        <div id="candPhone1"></div>
+    </div>
+    <div class="tile" style="display:none">
+        <div id="candName2"></div><br>
+        <div id="party2"></div><br>
+        <div id="candEmail2"></div><br>
+        <div id="candPhone2"></div>
+    </div>
+    <div class="tile" style="display:none">
+        <div id="candName3"></div><br>
+        <div id="party3"></div><br>
+        <div id="candEmail3"></div><br>
+        <div id="candPhone3"></div>
+    </div>
+    <form id="stateCandList" style="display:none">
+        <h2 id="polAddress1">State Candidate List</h2>
+        <!-- <input type="button" id = "getInfo" onclick="location.href='election.html';" value="Get Info" /> -->
+        <button id="getInfo">Get Info</button></div>
+    </form>
+    <div class="container" style="display: none">
+        <div class="candidates box">
+        </div>
+        <div id="searchresults"> </div>
+    </div>
+        <footer id="foot2">Copyright</footer>
 
-    </script>
+        <script type="text/javascript">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="./script.js"></script>
 </body>
 
 </html>
