@@ -171,21 +171,25 @@
         display: flex;
         justify-content: space-between;
         text-align: center;
-      }
-      .candidates {
-          color: ivory;
-      }
-      #polAddress1 {
-          font-size: 14px;
-          color: whitesmoke;
-      }
-      #getInfo {
+    }
+
+    .candidates {
+        color: ivory;
+    }
+
+    #polAddress1 {
+        font-size: 14px;
+        color: whitesmoke;
+    }
+
+    #getInfo {
         background-color: #BF0A30;
         color: white;
         border-radius: 4px;
         cursor: pointer;
-      }
-      /* #VoteImage
+    }
+
+    /* #VoteImage
       {
           margin-top: 200px;
       } */
