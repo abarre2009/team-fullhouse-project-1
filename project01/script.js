@@ -113,8 +113,10 @@ $("#searchbutton").on("click", function (event) {
     $("#stateCandList").show();
 })
 function getElection(state) {
+    var proxy = "https://chriscastle.com/proxy/index.php?:proxy:";
+    var searchURL = "http://api.votesmart.org/Election.getElectionByYearState?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&stateId=" + state + "&year=2019"
     $.ajax({
-        url: "http://api.votesmart.org/Election.getElectionByYearState?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&stateId=" + state + "&year=2019",
+        url: proxy + searchURL,
         method: "GET",
         dataType: "json",
     }).then(function (response) {
@@ -126,8 +128,10 @@ function getElection(state) {
     });
 }
 function getCandidatesByElections(electionId) {
+    var proxy1 = "https://chriscastle.com/proxy/index.php?:proxy:";
+    var searchURL1 = "http://api.votesmart.org/Candidates.getByElection?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&electionId=" + electionId 
     $.ajax({
-        url: "http://api.votesmart.org/Candidates.getByElection?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&electionId=" + electionId,
+        url: proxy1 + searchURL1,
         method: "GET",
         dataType: "json",
     }).then(function (response) {
@@ -143,8 +147,10 @@ function getCandidatesByElections(electionId) {
 }
 
 function getCandidateBio(candidateId) {
+    var proxy2 = "https://chriscastle.com/proxy/index.php?:proxy:";
+    var searchURL2 = "http://api.votesmart.org/CandidateBio.getBio?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&candidateId=" + candidateId
     $.ajax({
-        url: "http://api.votesmart.org/CandidateBio.getBio?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&candidateId=" + candidateId,
+        url: proxy2 + searchURL2,
         method: "GET",
         dataType: "json",
     }).then(function (response) {

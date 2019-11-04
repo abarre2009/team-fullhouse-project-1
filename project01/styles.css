@@ -5,13 +5,14 @@
 
     .hero-bkg-animated {
         background: gray url(usa-waving-flag-background-loop_szzghy9n__F0000.png) repeat 0 0;
-        color: aliceblue;
+        color: #BF0A30;
         width: 100%;
         margin: 0;
         text-align: center;
         height: 200px;
         padding-top: 120px;
         background-size: cover;
+        font-size: 28px;
         /* position: absolute; */
         /* box-sizing: border-box; */
         -webkit-animation: slide 20s linear infinite;
@@ -188,6 +189,7 @@
         border-radius: 4px;
         cursor: pointer;
     }
+    
 
     /* #VoteImage
       {
