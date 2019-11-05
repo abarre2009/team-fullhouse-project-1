@@ -41,7 +41,7 @@
         color: white;
         background: #002868;
         text-align: center;
-        position: absolute;
+        position: fixed;
         bottom: 0%;
     }
 
@@ -94,7 +94,7 @@
 
     #addressDetail {
         margin-top: 30px;
-        margin-left: 900px;
+        margin-left: 700px;
         margin-right: 200px;
     }
 
@@ -174,8 +174,18 @@
         text-align: center;
     }
 
-    .candidates {
-        color: ivory;
+    .cand-btn {
+        margin-top: 20px;
+        width: 20%;
+        background-color: #BF0A30;
+        color: white;
+        /* padding: 14px 20px;
+        margin: 3px 0; */
+        border: whitesmoke;
+        border-radius: 10px;
+        cursor: pointer;
+        display: block;
+        /* float: left; */
     }
 
     #polAddress1 {
@@ -189,7 +199,19 @@
         border-radius: 4px;
         cursor: pointer;
     }
-    
+    .candDetails {
+        width: 200%;
+        margin-top: -200px;
+        margin-left: 700px;
+        color: whitesmoke;
+        position: absolute;
+        border-block: initial;
+        /* background-image: url('state.jpg'); */
+    }
+    #lastHead {
+        margin-top: 20px;
+        color: whitesmoke;
+    }
 
     /* #VoteImage
       {

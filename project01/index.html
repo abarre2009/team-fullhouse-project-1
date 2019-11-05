@@ -17,25 +17,33 @@
         <a href="#" class="w3-bar-item w3-button">Contact</a>
         <!-- <a href="#" class="w3-bar-item w3-button">Blog</a> -->
     </div>
-    <div id = "title"class="jumbotron hero-bkg-animated">The Fullhouse Project 
-               The bonds of family and representation for all</div>
-    <!-- <button id="getInfo">Get info</button> -->
-    <div id="infoBar">The Full house project is a nonpartisan initiative seeking to educate and increase political
-        participation amongst new and existing voters.
-        We believe, well-informed civilly engaged communities help create a democracy representative of the people.
-        It is our vision to help bring voters information through the digital channels and platforms they currently use
-        and ensure factual, non-bias, nonpartisan data is accessible to all.
-    </div>
 
-    <form id="addressDetail">
-        <div id="addEnter">Please Enter you address</div>
-        <input id="houseNo" type="text" placeholder="House/Apt No"></input><br>
-        <input id="StreetName" type="text" placeholder="Street Name"></input><br>
-        <input id="city" type="text" placeholder="City"></input><br>
-        <input id="state" type="text" placeholder="State"></input><br>
-        <input id="zipcode" type="text" placeholder="Zipcode"></input><br>
-        <button id="searchbutton">Search</button>
-    </form>
+    <div class="container">
+        <div class = "row">
+            <div class = "col-md-12">
+        <div id="title" class="jumbotron hero-bkg-animated">The Fullhouse Project
+            The bonds of family and representation for all</div>
+        <!-- <button id="getInfo">Get info</button> -->
+    </div></div>
+        <div id="infoBar">The Full house project is a nonpartisan initiative seeking to educate and increase political
+            participation amongst new and existing voters.
+            We believe, well-informed civilly engaged communities help create a democracy representative of the people.
+            It is our vision to help bring voters information through the digital channels and platforms they currently
+            use
+            and ensure factual, non-bias, nonpartisan data is accessible to all.
+        </div>
+        <form id="addressDetail">
+            <div id="addEnter">Please Enter you address</div>
+            <input id="houseNo" type="text" placeholder="House/Apt No"></input><br>
+            <input id="StreetName" type="text" placeholder="Street Name"></input><br>
+            <input id="city" type="text" placeholder="City"></input><br>
+            <input id="state" type="text" placeholder="State"></input><br>
+            <input id="zipcode" type="text" placeholder="Zipcode"></input><br>
+            <button id="searchbutton">Search</button>
+        </form>
+        <footer id="foot2">Copyright</footer>
+    </div>
+    <div class="container">
     <form id="pollingLocation" style="display:none">
         <h2 id="polAddress" style="display:none">Polling Address</h2>
         <div id="polLocationName"></div>
@@ -72,17 +80,21 @@
         <div id="candEmail3"></div><br>
         <div id="candPhone3"></div>
     </div>
-    <form id="stateCandList" style="display:none">
-        <h2 id="polAddress1">State Candidate List</h2>
-        <!-- <input type="button" id = "getInfo" onclick="location.href='election.html';" value="Get Info" /> -->
-        <button id="getInfo">Get Info</button></div>
-    </form>
-    <div class="container" style="display: none">
-        <div class="candidates box">
+        <div id="stateCandList" style="display:none">
+            <h2 id="polAddress1">State Candidate List</h2>
+            <!-- <input type="button" id = "getInfo" onclick="location.href='election.html';" value="Get Info" /> -->
+            <button id="getInfo">Get Info</button>
         </div>
-        <div id="searchresults"> </div>
     </div>
-    <footer id="foot2">Copyright</footer>
+
+    <div class="container" style="display: none">
+        <div id = "lastHead">Please select a candidate from the list to view details</div>
+        <div class="candidates">
+        </div>
+        <div class="candDetails"></div>
+        <!-- <div id="searchresults"></div> -->
+    </div>
+
 
     <script type="text/javascript">
 

@@ -129,7 +129,7 @@ function getElection(state) {
 }
 function getCandidatesByElections(electionId) {
     // var proxy1 = "https://chriscastle.com/proxy/index.php?:proxy:";
-    var searchURL = "http://api.votesmart.org/Candidates.getByElection?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&electionId=" + electionId 
+    var searchURL = "http://api.votesmart.org/Candidates.getByElection?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&electionId=" + electionId
     $.ajax({
         url: proxy + searchURL,
         method: "GET",
@@ -139,14 +139,15 @@ function getCandidatesByElections(electionId) {
         if (response) {
             var candidates = response.candidateList.candidate;
             for (var i = 0; i < candidates.length; i++) {
-                getCandidateBio(candidates[i].candidateId);
+                getCandidateBio(candidates[i].candidateId, false);
             }
         }
 
     });
 }
 
-function getCandidateBio(candidateId) {
+
+function getCandidateBio(candidateId, detail) {
     // var proxy2 = "https://chriscastle.com/proxy/index.php?:proxy:";
     var searchURL = "http://api.votesmart.org/CandidateBio.getBio?key=a8f578b7b9805c07aedc064c14017eb4&o=JSON&candidateId=" + candidateId
     $.ajax({
@@ -155,34 +156,63 @@ function getCandidateBio(candidateId) {
         dataType: "json",
     }).then(function (response) {
 
-        console.log(response.bio.candidate);
-        var candidateDiv = $("<div style='display:inline-block; width:130px; border:1px solid black'>");
-        if (response.bio.candidate.photo) {
-
-
-            var photo = $("<img src='" + response.bio.candidate.photo + "'>");
+        if (!detail){
+            console.log(response.bio.candidate);
+         
+            var candidateLs = $("<button>");
+            candidateLs.addClass("cand-btn");
+            candidateLs.attr("data-name", response.bio.candidate.candidateId);
+            candidateLs.html(response.bio.candidate.firstName + " " + response.bio.candidate.lastName);
+       
+            // candidateLs.append(photo);
+            candidateLs.append(name);
+            //$(".candidates").append(candidateDiv);
+            $(".candidates").append(candidateLs);
         }
-        else {
-            var photo = $("<img src='https://image.shutterstock.com/image-illustration/black-linear-photo-camera-logo-260nw-1412111903.jpg'>");
+        else{
+            getCandidateDetail(response)
         }
-        var name = $("<p>" + response.bio.candidate.firstName + " " + response.bio.candidate.lastName + "</p>");
-        var candidateId = $("<p>" + "Candidate ID:" + " " + response.bio.candidate.candidateId + "</p>");
-        var gender = $("<p>" + "Gender:" + " " + response.bio.candidate.gender + "</p>");
-        var birthDate = $("<p>" + "DOB:" + " " + response.bio.candidate.birthDate + "</p>");
-        var birthPlace = $("<p>" + "Birth Place:" + " " + response.bio.candidate.birthPlace + "</p>");
-        var homeCity = $("<p>" + "Home City:" + " " + response.bio.candidate.homeCity + "</p>");
-        var homeState = $("<p>" + "Home State:" + " " + response.bio.candidate.homeState + "</p>");
-        candidateDiv.append(photo);
-        candidateDiv.append(name);
-        candidateDiv.append(candidateId);
-        candidateDiv.append(gender);
-        candidateDiv.append(birthDate);
-        candidateDiv.append(birthPlace);
-        candidateDiv.append(homeCity);
-        candidateDiv.append(homeState);
-        $(".candidates").append(candidateDiv)
+        
     });
 }
+
+function getCandidateDetail(response){
+    if (response.bio.candidate.photo) {
+
+
+        var photo = $("<img src='" + response.bio.candidate.photo + "'>");
+    }
+    else {
+        var photo = $("<img src='https://image.shutterstock.com/image-illustration/black-linear-photo-camera-logo-260nw-1412111903.jpg'>");
+    }
+    var name = $("<div>" + response.bio.candidate.firstName + " " + response.bio.candidate.lastName + "</div>");
+    var candidateId = $("<p>" + "Candidate ID:" + " " + response.bio.candidate.candidateId + "</p>");
+    var gender = $("<p>" + "Gender:" + " " + response.bio.candidate.gender + "</p>");
+    var birthDate = $("<p>" + "DOB:" + " " + response.bio.candidate.birthDate + "</p>");
+    var birthPlace = $("<p>" + "Birth Place:" + " " + response.bio.candidate.birthPlace + "</p>");
+    var homeCity = $("<p>" + "Home City:" + " " + response.bio.candidate.homeCity + "</p>");
+    var homeState = $("<p>" + "Home State:" + " " + response.bio.candidate.homeState + "</p>");
+    candidateDiv = $(".candDetails");
+    candidateDiv.empty();
+    candidateDiv.append(photo);
+    candidateDiv.append(name);
+    candidateDiv.append(candidateId);
+    candidateDiv.append(gender);
+    candidateDiv.append(birthDate);
+    candidateDiv.append(birthPlace);
+    candidateDiv.append(homeCity);
+    candidateDiv.append(homeState);
+    $(".candDetails").append(candidateDiv);
+}
+
+$(document).on("click", ".cand-btn", function (event) {
+    console.log("CLICK");
+    event.preventDefault()
+    candidateId = $(this).attr("data-name");
+    console.log(candidateId);
+    getCandidateBio(candidateId,true);
+});
+
 $("#getInfo").on("click", function (event) {
     event.preventDefault()
     var value3 = $("#state").val().trim();
@@ -196,13 +226,5 @@ $("#getInfo").on("click", function (event) {
 })
 $(".home").on("click", function (event) {
     event.preventDefault()
-    $("#addressDetail").show();
-    $(".jumbotron").show();
-    $("#infoBar").show();
-    // $("#VoteImage").show();
-    $("#stateCandList").hide();
-    $(".container").hide();
-    $('body').css('background-image', '');
+    location.reload();
 })
-    //   getInfo
-    //   getElection("MN"); //from input $("button").val().trim()
